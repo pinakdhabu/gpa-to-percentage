@@ -24,8 +24,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install dependencies and update lock file
+      run: npm install && npm ci
 
     - name: Run tests
       run: npm test -- --coverage --watchAll=false
@@ -55,8 +55,8 @@ jobs:
         node-version: '20.x'
         cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install dependencies and update lock file
+      run: npm install && npm ci
 
     - name: Build application
       run: npm run build
